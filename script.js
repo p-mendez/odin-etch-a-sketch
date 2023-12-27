@@ -5,7 +5,10 @@ const bodyDOM = document.querySelector("body");
 
 createContainer();
 createGrid(16);
-addHoverEventListener();
+createButton();
+
+
+
 
 // FUNCTIONS
 function addHoverEventListener() {
@@ -13,6 +16,19 @@ function addHoverEventListener() {
     for (const square of squares) {
         square.addEventListener("mouseover", fillSquare);
     }
+}
+
+function clearGrid() {
+    while (containerDOM.firstChild) {
+      containerDOM.removeChild(containerDOM.firstChild); 
+    }
+  }
+
+function createButton() {
+    const btn = document.createElement("button");
+    btn.textContent = "Create New Grid";
+    btn.onclick = promptGridSize;
+    bodyDOM.prepend(btn);
 }
 
 function createContainer() {
@@ -37,9 +53,17 @@ function createGrid(size) {
             row.append(square);
         }
     }
+    addHoverEventListener();
 }
 
 function fillSquare(e) {
     const target = e.target;
     target.classList.add("filled");
+}
+
+function promptGridSize() {
+    clearGrid();
+
+    const size = prompt("What size grid would you like?", "16");
+    createGrid(size);
 }
