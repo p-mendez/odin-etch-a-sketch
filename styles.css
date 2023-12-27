@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-#outer-container {
+#container {
     border: 2px solid black;
     height: 960px;
     width: 960px;
