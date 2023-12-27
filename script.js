@@ -63,7 +63,11 @@ function fillSquare(e) {
 
 function promptGridSize() {
     clearGrid();
+    let size;
 
-    const size = prompt("What size grid would you like?", "16");
+    do {
+        size = prompt("What size grid would you like? Choose 1 - 100.", "16");
+    } while (size < 1 || size > 100);
+
     createGrid(size);
 }
