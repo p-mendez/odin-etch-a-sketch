@@ -2,13 +2,7 @@
 const containerDOM = document.createElement("div");
 const bodyDOM = document.querySelector("body");
 
-
-createContainer();
-createGrid(16);
-createButton();
-
-
-
+start();
 
 // FUNCTIONS
 function addHoverEventListener() {
@@ -70,4 +64,10 @@ function promptGridSize() {
     } while (size < 1 || size > 100);
 
     createGrid(size);
+}
+
+function start() {
+    createContainer();
+    createGrid(16);
+    createButton();
 }
