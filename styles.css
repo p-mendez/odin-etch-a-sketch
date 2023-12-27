@@ -12,3 +12,7 @@
 .square {
     border: 1px solid black;
 }
+
+.filled {
+    background-color: darkgray;
+}

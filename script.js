@@ -20,3 +20,13 @@ for (let i = 0; i < 16; i++) {
         row.append(square);
     }
 }
+
+squares = outerContainerDOM.querySelectorAll(".square");
+for (const square of squares) {
+    square.addEventListener("mouseover", fillSquare);
+}
+
+function fillSquare(e) {
+    const target = e.target;
+    target.classList.add("filled");
+}
