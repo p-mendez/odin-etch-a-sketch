@@ -52,13 +52,13 @@ function createGrid(size) {
 
 function fillSquare(e) {
     const target = e.target;
-    console.log(target.classList.contains("filled"));
+
     if (target.classList.contains("filled")) {
-        target.style.opacity -= -.2;
+        target.style.opacity -= -0.1;    // subtracting a negative because + operator concatenates
     } else {
         target.style.backgroundColor = getRandomCSS_RGB();
         target.classList.add("filled");
-        target.style.opacity = .2;
+        target.style.opacity = .1;
     }
 }
 

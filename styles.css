@@ -8,10 +8,11 @@
     width: 960px;
 }
 
-.row,
+/* Uncomment this rule if you want a lined grid */
+/* .row,
 .square {
     border: 1px solid black;
-}
+} */
 
 .filled {
     background-color: darkgray;
