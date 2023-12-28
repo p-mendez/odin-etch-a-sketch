@@ -6,6 +6,7 @@ const bodyDOM = document.querySelector("body");
 
 // VARIABLES
 let randomColorMode = false;
+let progressiveDarkeningMode = false;
 
 start();
 
@@ -32,8 +33,13 @@ function createButtons() {
     randomColorBtn.textContent = "Random Colors On/Off";
     randomColorBtn.onclick = () => randomColorMode = !randomColorMode;
 
+    const progressiveDarkeningBtn = document.createElement("button");
+    progressiveDarkeningBtn.textContent = "Progressive Darkening Mode On/Off";
+    progressiveDarkeningBtn.onclick = () => progressiveDarkeningMode = !progressiveDarkeningMode;
+
     buttonContainerDOM.append(newGridBtn);
     buttonContainerDOM.append(randomColorBtn);
+    buttonContainerDOM.append(progressiveDarkeningBtn);
 }
 
 function createContainer() {
@@ -82,15 +88,25 @@ function fillSquare(e) {
         } else {
             target.style.backgroundColor = "#000000";
         }
-        target.style.opacity -= -0.1;    // subtracting a negative because + operator concatenates
+
+        if (progressiveDarkeningMode) {
+            target.style.opacity -= -0.1;    // subtracting a negative because + operator concatenates
+        } else {
+            target.style.opacity -= -0.1;
+        }
     } else {
         if (randomColorMode) {
             target.style.backgroundColor = getRandomCSS_RGB();
         } else {
             target.style.backgroundColor = "#000000";
         }
+
+        if (progressiveDarkeningMode) {
+            target.style.opacity = .1;    
+        } else {
+            target.style.opacity = 1;
+        }
         target.classList.add("filled");
-        target.style.opacity = .1;
     }
 }
 
