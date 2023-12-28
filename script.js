@@ -52,8 +52,14 @@ function createGrid(size) {
 
 function fillSquare(e) {
     const target = e.target;
-    target.style.backgroundColor = getRandomCSS_RGB();
-    target.classList.add("filled");
+    console.log(target.classList.contains("filled"));
+    if (target.classList.contains("filled")) {
+        target.style.opacity -= -.2;
+    } else {
+        target.style.backgroundColor = getRandomCSS_RGB();
+        target.classList.add("filled");
+        target.style.opacity = .2;
+    }
 }
 
 function getRandomCSS_RGB() {
@@ -62,7 +68,7 @@ function getRandomCSS_RGB() {
     let g = (Math.floor(Math.random() * MAX)) + 1;
     let b = (Math.floor(Math.random() * MAX)) + 1;
 
-    return `rgb(${r},${g},${b}),.2`;
+    return `rgb(${r},${g},${b})`;
 }
 
 function promptGridSize() {
