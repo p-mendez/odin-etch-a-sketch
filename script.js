@@ -21,7 +21,7 @@ function clearGrid() {
     while (gridContainerDOM.firstChild) {
       gridContainerDOM.removeChild(gridContainerDOM.firstChild); 
     }
-  }
+}
 
 function createButtons() {
     const newGridBtn = document.createElement("button");
@@ -77,10 +77,18 @@ function fillSquare(e) {
     const target = e.target;
 
     if (target.classList.contains("filled")) {
-        target.style.backgroundColor = getRandomCSS_RGB();
+        if (randomColorMode) {
+            target.style.backgroundColor = getRandomCSS_RGB();
+        } else {
+            target.style.backgroundColor = "#000000";
+        }
         target.style.opacity -= -0.1;    // subtracting a negative because + operator concatenates
     } else {
-        target.style.backgroundColor = getRandomCSS_RGB();
+        if (randomColorMode) {
+            target.style.backgroundColor = getRandomCSS_RGB();
+        } else {
+            target.style.backgroundColor = "#000000";
+        }
         target.classList.add("filled");
         target.style.opacity = .1;
     }
