@@ -55,6 +55,15 @@ function fillSquare(e) {
     target.classList.add("filled");
 }
 
+function getRandomRGB() {
+    let MAX = 255;
+    let r = (Math.floor(Math.random() * 255)) + 1;
+    let g = (Math.floor(Math.random() * 255)) + 1;
+    let b = (Math.floor(Math.random() * 255)) + 1;
+    
+    return "#" + r.toString(16) + g.toString(16) + b.toString(16);
+}
+
 function promptGridSize() {
     clearGrid();
     let size;
