@@ -29,8 +29,8 @@ function createButtons() {
     newGridBtn.onclick = promptGridSize;
 
     const randomColorBtn = document.createElement("button");
-    randomColorBtn.textContent = "Random Colors On";
-    randomColorBtn.onclick = () => randomColorMode = true;
+    randomColorBtn.textContent = "Random Colors On/Off";
+    randomColorBtn.onclick = () => randomColorMode = !randomColorMode;
 
     buttonContainerDOM.append(newGridBtn);
     buttonContainerDOM.append(randomColorBtn);
