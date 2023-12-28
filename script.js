@@ -1,6 +1,11 @@
 // CONSTANTS
 const containerDOM = document.createElement("div");
+const gridContainerDOM = document.createElement("div");
+const buttonContainerDOM = document.createElement("div");
 const bodyDOM = document.querySelector("body");
+
+// VARIABLES
+let randomColorMode = false;
 
 start();
 
@@ -13,16 +18,22 @@ function addHoverEventListener() {
 }
 
 function clearGrid() {
-    while (containerDOM.firstChild) {
-      containerDOM.removeChild(containerDOM.firstChild); 
+    while (gridContainerDOM.firstChild) {
+      gridContainerDOM.removeChild(gridContainerDOM.firstChild); 
     }
   }
 
-function createButton() {
-    const btn = document.createElement("button");
-    btn.textContent = "Create New Grid";
-    btn.onclick = promptGridSize;
-    bodyDOM.prepend(btn);
+function createButtons() {
+    const newGridBtn = document.createElement("button");
+    newGridBtn.textContent = "Create New Grid";
+    newGridBtn.onclick = promptGridSize;
+
+    const randomColorBtn = document.createElement("button");
+    randomColorBtn.textContent = "Random Colors On";
+    randomColorBtn.onclick = () => randomColorMode = true;
+
+    buttonContainerDOM.append(newGridBtn);
+    buttonContainerDOM.append(randomColorBtn);
 }
 
 function createContainer() {
@@ -30,6 +41,18 @@ function createContainer() {
     containerDOM.id = "container";
     containerDOM.style.display = "flex";
     containerDOM.style.flexDirection = "column";
+
+    gridContainerDOM.classList.add("container");
+    gridContainerDOM.id = "grid-container";
+    gridContainerDOM.style.display = "flex";
+    gridContainerDOM.style.flexDirection = "column";
+    
+    buttonContainerDOM.classList.add("container");
+    buttonContainerDOM.id = "button-container";
+    buttonContainerDOM.style.display = "flex";
+    
+    containerDOM.append(buttonContainerDOM);
+    containerDOM.append(gridContainerDOM)
     bodyDOM.append(containerDOM);
 }
 
@@ -39,7 +62,7 @@ function createGrid(size) {
         row.classList.add("row");
         row.style.flex = 1;
         row.style.display = "flex";
-        containerDOM.append(row);
+        gridContainerDOM.append(row);
         for (let j = 0; j < size; j++) {
             const square = document.createElement("div");
             square.style.flex = 1;
@@ -54,6 +77,7 @@ function fillSquare(e) {
     const target = e.target;
 
     if (target.classList.contains("filled")) {
+        target.style.backgroundColor = getRandomCSS_RGB();
         target.style.opacity -= -0.1;    // subtracting a negative because + operator concatenates
     } else {
         target.style.backgroundColor = getRandomCSS_RGB();
@@ -85,5 +109,5 @@ function promptGridSize() {
 function start() {
     createContainer();
     createGrid(16);
-    createButton();
+    createButtons();
 }

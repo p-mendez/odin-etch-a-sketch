@@ -3,9 +3,14 @@
 }
 
 #container {
-    border: 2px solid black;
     height: 960px;
     width: 960px;
+}
+
+#grid-container {
+    border: 2px solid black;
+    width: 100%;
+    flex: 1;
 }
 
 /* Uncomment this rule if you want a grid with lines */
