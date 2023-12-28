@@ -62,7 +62,7 @@ function getRandomCSS_RGB() {
     let g = (Math.floor(Math.random() * MAX)) + 1;
     let b = (Math.floor(Math.random() * MAX)) + 1;
 
-    return `rgb(${r},${g},${b})`;
+    return `rgb(${r},${g},${b}),.2`;
 }
 
 function promptGridSize() {
