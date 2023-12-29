@@ -92,7 +92,7 @@ function fillSquare(e) {
         if (progressiveDarkeningMode) {
             target.style.opacity -= -0.1;    // subtracting a negative because + operator concatenates
         } else {
-            target.style.opacity -= -0.1;
+            target.style.opacity = 1;
         }
     } else {
         if (randomColorMode) {
