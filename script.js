@@ -49,28 +49,18 @@ function createButtons() {
 
 /* Creates and styles container, grid, and button divs and appends them to the body */
 function createContainers() {
-    bodyDOM.style.display = "flex";
-    bodyDOM.style.justifyContent = "center";
-
-    containerDOM.classList.add("container");
+    containerDOM.classList.add("container", "flex-column");
     containerDOM.id = "container";
-    containerDOM.style.display = "flex";
-    containerDOM.style.flexDirection = "column";
     containerDOM.style.flex = "0 1 640px";
 
-    gridContainerDOM.classList.add("container");
+    gridContainerDOM.classList.add("container", "flex-column");
     gridContainerDOM.id = "grid-container";
-    gridContainerDOM.style.display = "flex";
-    gridContainerDOM.style.flexDirection = "column";
     
     buttonContainerDOM.classList.add("container");
     buttonContainerDOM.id = "button-container";
-    buttonContainerDOM.style.display = "flex";
 
-    modeContainerDOM.classList.add("container");
+    modeContainerDOM.classList.add("container", "flex-column");
     modeContainerDOM.id = "mode-container";
-    modeContainerDOM.style.display = "flex";
-    modeContainerDOM.style.flexDirection = "column";
     
     containerDOM.append(buttonContainerDOM);
     containerDOM.append(gridContainerDOM)

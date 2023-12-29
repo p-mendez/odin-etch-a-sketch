@@ -2,6 +2,19 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
 #container {
     height: 640px;
     width: 640px;
@@ -11,6 +24,12 @@
     border: 2px solid black;
     width: 100%;
     flex: 1;
+}
+
+#button-container {
+    gap: 20px;
+    flex-wrap:nowrap;
+    padding: 20px;
 }
 
 /* Uncomment this rule if you want a grid with lines */
