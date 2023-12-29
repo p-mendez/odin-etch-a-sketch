@@ -11,6 +11,15 @@ let progressiveDarkeningMode = false;
 start();
 
 // FUNCTIONS
+
+/* Initializes app by creating elements and calling other functions */
+function start() {
+    createContainers();
+    createGrid(16);
+    createButtons();
+}
+
+/* Adds mouseover event listeners to each square in the grid to call the fillSquare function */
 function addHoverEventListener() {
     squares = containerDOM.querySelectorAll(".square");
     for (const square of squares) {
@@ -18,12 +27,14 @@ function addHoverEventListener() {
     }
 }
 
+/* Helper function: Removes all child elements from the grid container div */
 function clearGrid() {
     while (gridContainerDOM.firstChild) {
       gridContainerDOM.removeChild(gridContainerDOM.firstChild); 
     }
 }
 
+/* Creates and appends buttons to toggle random colors and progressive darkening modes */
 function createButtons() {
     const newGridBtn = document.createElement("button");
     newGridBtn.textContent = "Create New Grid";
@@ -42,6 +53,7 @@ function createButtons() {
     buttonContainerDOM.append(progressiveDarkeningBtn);
 }
 
+/* Creates and styles container, grid, and button divs and appends them to the body */
 function createContainers() {
     containerDOM.classList.add("container");
     containerDOM.id = "container";
@@ -62,6 +74,8 @@ function createContainers() {
     bodyDOM.append(containerDOM);
 }
 
+/* Generates a grid of divs based on the provided size
+ * @param {number} size - Size of one side of the square grid */
 function createGrid(size) {
     for (let i = 0; i < size; i++) {
         const row = document.createElement("div");
@@ -79,6 +93,8 @@ function createGrid(size) {
     addHoverEventListener();
 }
 
+/* Fills or darkens the square on mouseover based on mode toggles
+ * @param {object} e - Mouseevent object */
 function fillSquare(e) {
     const target = e.target;
 
@@ -110,6 +126,8 @@ function fillSquare(e) {
     }
 }
 
+/* Generates a random RGB color string
+ * @returns {string} Random CSS RGB color */
 function getRandomCSS_RGB() {
     let MAX = 255;
     let r = (Math.floor(Math.random() * MAX)) + 1;
@@ -119,6 +137,7 @@ function getRandomCSS_RGB() {
     return `rgb(${r},${g},${b})`;
 }
 
+/* Prompts the user for a grid size, clears existing grid, and regenerates grid */
 function promptGridSize() {
     clearGrid();
     let size;
@@ -130,8 +149,3 @@ function promptGridSize() {
     createGrid(size);
 }
 
-function start() {
-    createContainers();
-    createGrid(16);
-    createButtons();
-}
