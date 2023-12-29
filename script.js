@@ -2,6 +2,7 @@
 const containerDOM = document.createElement("div");
 const gridContainerDOM = document.createElement("div");
 const buttonContainerDOM = document.createElement("div");
+const modeContainerDOM = document.createElement("div");
 const bodyDOM = document.querySelector("body");
 
 // VARIABLES
@@ -27,13 +28,6 @@ function addHoverEventListener() {
     }
 }
 
-/* Helper function: Removes all child elements from the grid container div */
-function clearGrid() {
-    while (gridContainerDOM.firstChild) {
-      gridContainerDOM.removeChild(gridContainerDOM.firstChild); 
-    }
-}
-
 /* Creates and appends buttons to toggle random colors and progressive darkening modes */
 function createButtons() {
     const newGridBtn = document.createElement("button");
@@ -55,10 +49,14 @@ function createButtons() {
 
 /* Creates and styles container, grid, and button divs and appends them to the body */
 function createContainers() {
+    bodyDOM.style.display = "flex";
+    bodyDOM.style.justifyContent = "center";
+
     containerDOM.classList.add("container");
     containerDOM.id = "container";
     containerDOM.style.display = "flex";
     containerDOM.style.flexDirection = "column";
+    containerDOM.style.flex = "0 1 640px";
 
     gridContainerDOM.classList.add("container");
     gridContainerDOM.id = "grid-container";
@@ -68,6 +66,11 @@ function createContainers() {
     buttonContainerDOM.classList.add("container");
     buttonContainerDOM.id = "button-container";
     buttonContainerDOM.style.display = "flex";
+
+    modeContainerDOM.classList.add("container");
+    modeContainerDOM.id = "mode-container";
+    modeContainerDOM.style.display = "flex";
+    modeContainerDOM.style.flexDirection = "column";
     
     containerDOM.append(buttonContainerDOM);
     containerDOM.append(gridContainerDOM)
@@ -126,6 +129,20 @@ function fillSquare(e) {
     }
 }
 
+function setColor(target) {
+    
+}
+
+
+// HELPER FUNCTIONS
+
+/* Removes all child elements from the grid container div */
+function clearGrid() {
+    while (gridContainerDOM.firstChild) {
+      gridContainerDOM.removeChild(gridContainerDOM.firstChild); 
+    }
+}
+
 /* Generates a random RGB color string
  * @returns {string} Random CSS RGB color */
 function getRandomCSS_RGB() {
@@ -148,4 +165,3 @@ function promptGridSize() {
 
     createGrid(size);
 }
-
