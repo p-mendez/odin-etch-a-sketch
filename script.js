@@ -42,7 +42,7 @@ function createButtons() {
     buttonContainerDOM.append(progressiveDarkeningBtn);
 }
 
-function createContainer() {
+function createContainers() {
     containerDOM.classList.add("container");
     containerDOM.id = "container";
     containerDOM.style.display = "flex";
@@ -131,7 +131,7 @@ function promptGridSize() {
 }
 
 function start() {
-    createContainer();
+    createContainers();
     createGrid(16);
     createButtons();
 }
