@@ -61,7 +61,11 @@ function createContainers() {
 
     modeContainerDOM.classList.add("container", "flex-column");
     modeContainerDOM.id = "mode-container";
+
+    const title = document.createElement("h1");
+    title.textContent = "Etch-A-Sketch";
     
+    containerDOM.append(title);
     containerDOM.append(buttonContainerDOM);
     containerDOM.append(gridContainerDOM)
     bodyDOM.append(containerDOM);
