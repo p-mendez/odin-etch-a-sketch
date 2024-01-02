@@ -3,7 +3,7 @@
 }
 
 body {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
 }
 
@@ -18,14 +18,14 @@ body {
 }
 
 #container {
-    height: 640px;
-    width: 640px;
+    justify-content: center;
 }
 
 #grid-container {
     border: 2px solid black;
-    width: 100%;
-    flex: 1;
+    flex: auto;
+    height: 640px;
+    width: 640px;
 }
 
 #button-container {
