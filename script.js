@@ -61,13 +61,20 @@ function createContainers() {
 
     modeContainerDOM.classList.add("container", "flex-column");
     modeContainerDOM.id = "mode-container";
+    const displayRandomColorMode = document.createElement("p");
+    const displayProgressiveDarkeningMode = document.createElement("p");
+    displayRandomColorMode.textContent = `Random Colors: ${randomColorMode}`;
+    displayProgressiveDarkeningMode.textContent = `Progressive Darkening: ${progressiveDarkeningMode}`;
+    modeContainerDOM.append(displayRandomColorMode);
+    modeContainerDOM.append(displayProgressiveDarkeningMode);
 
     const title = document.createElement("h1");
     title.textContent = "Etch-A-Sketch";
     
     containerDOM.append(title);
     containerDOM.append(buttonContainerDOM);
-    containerDOM.append(gridContainerDOM)
+    containerDOM.append(gridContainerDOM);
+    containerDOM.append(modeContainerDOM);
     bodyDOM.append(containerDOM);
 }
 
