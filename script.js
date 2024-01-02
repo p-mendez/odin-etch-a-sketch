@@ -108,6 +108,7 @@ function createGrid(size) {
 function fillSquare(e) {
     const target = e.target;
 
+    // When square is filled
     if (target.classList.contains("filled")) {
         if (randomColorMode) {
             target.style.backgroundColor = getRandomCSS_RGB();
@@ -120,7 +121,9 @@ function fillSquare(e) {
         } else {
             target.style.opacity = 1;
         }
-    } else {
+    }
+    // When square is not filled 
+    else {
         if (randomColorMode) {
             target.style.backgroundColor = getRandomCSS_RGB();
         } else {
