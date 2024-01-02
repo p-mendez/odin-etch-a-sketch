@@ -49,16 +49,24 @@ function createButtons() {
 
 /* Creates and styles container, grid, and button divs and appends them to the body */
 function createContainers() {
+    // title at the top of the page
+    const title = document.createElement("h1");
+    title.textContent = "Etch-A-Sketch";
+       
+    // #container contains all other containers
     containerDOM.classList.add("container", "flex-column");
     containerDOM.id = "container";
     containerDOM.style.flex = "0 1 640px";
 
+    // #grid-container has the rows and squares of the grid
     gridContainerDOM.classList.add("container", "flex-column");
     gridContainerDOM.id = "grid-container";
     
+    // #button-container has the mode buttons the user will toggle 
     buttonContainerDOM.classList.add("container");
     buttonContainerDOM.id = "button-container";
 
+    // #mode-container displays the current settings to the user
     modeContainerDOM.classList.add("container", "flex-column");
     modeContainerDOM.id = "mode-container";
     const displayRandomColorMode = document.createElement("p");
@@ -68,9 +76,7 @@ function createContainers() {
     modeContainerDOM.append(displayRandomColorMode);
     modeContainerDOM.append(displayProgressiveDarkeningMode);
 
-    const title = document.createElement("h1");
-    title.textContent = "Etch-A-Sketch";
-    
+    // append all the subcontainers into the container
     containerDOM.append(title);
     containerDOM.append(buttonContainerDOM);
     containerDOM.append(gridContainerDOM);
