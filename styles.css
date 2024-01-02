@@ -8,9 +8,9 @@ body {
 }
 
 .container {
-    align-items: center;
+    /* align-items: center; */
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .flex-column {
@@ -35,10 +35,10 @@ body {
 }
 
 /* Uncomment this rule if you want a grid with lines */
-/* .row,
+.row, 
 .square {
     border: 1px solid black;
-} */
+} 
 
 .filled {
     background-color: darkgray;
