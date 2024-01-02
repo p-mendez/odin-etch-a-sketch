@@ -1,5 +1,7 @@
 // CONSTANTS
 const containerDOM = document.createElement("div");
+const displayRandomColorMode = document.createElement("p");
+const displayProgressiveDarkeningMode = document.createElement("p");
 const gridContainerDOM = document.createElement("div");
 const buttonContainerDOM = document.createElement("div");
 const modeContainerDOM = document.createElement("div");
@@ -36,11 +38,19 @@ function createButtons() {
 
     const randomColorBtn = document.createElement("button");
     randomColorBtn.textContent = "Random Colors On/Off";
-    randomColorBtn.onclick = () => randomColorMode = !randomColorMode;
+    randomColorBtn.onclick = () => {
+        randomColorMode = !randomColorMode;
+        displayRandomColorMode.textContent = `Random Colors: ${randomColorMode}`;
+        displayProgressiveDarkeningMode.textContent = `Progressive Darkening: ${progressiveDarkeningMode}`;
+    };
 
     const progressiveDarkeningBtn = document.createElement("button");
     progressiveDarkeningBtn.textContent = "Progressive Darkening Mode On/Off";
-    progressiveDarkeningBtn.onclick = () => progressiveDarkeningMode = !progressiveDarkeningMode;
+    progressiveDarkeningBtn.onclick = () => {
+        progressiveDarkeningMode = !progressiveDarkeningMode;
+        displayRandomColorMode.textContent = `Random Colors: ${randomColorMode}`;
+        displayProgressiveDarkeningMode.textContent = `Progressive Darkening: ${progressiveDarkeningMode}`;
+    };
 
     buttonContainerDOM.append(newGridBtn);
     buttonContainerDOM.append(randomColorBtn);
@@ -69,8 +79,6 @@ function createContainers() {
     // #mode-container displays the current settings to the user
     modeContainerDOM.classList.add("container", "flex-column");
     modeContainerDOM.id = "mode-container";
-    const displayRandomColorMode = document.createElement("p");
-    const displayProgressiveDarkeningMode = document.createElement("p");
     displayRandomColorMode.textContent = `Random Colors: ${randomColorMode}`;
     displayProgressiveDarkeningMode.textContent = `Progressive Darkening: ${progressiveDarkeningMode}`;
     modeContainerDOM.append(displayRandomColorMode);
