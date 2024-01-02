@@ -123,10 +123,6 @@ function fillSquare(e) {
     }
 }
 
-function setColor(target) {
-    
-}
-
 
 // HELPER FUNCTIONS
 
