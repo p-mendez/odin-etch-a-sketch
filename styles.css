@@ -18,6 +18,7 @@ body {
 }
 
 #container {
+    align-items: center;
     justify-content: center;
 }
 
@@ -37,8 +38,12 @@ body {
 #mode-container {
     display: flex;
     flex-direction: column;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-weight: 500;
     gap: 10px;
     justify-content:space-evenly;
+    padding: 20px;
 }
 
 #mode-container > * {
@@ -48,7 +53,7 @@ body {
 /* Uncomment this rule if you want a grid with lines */
 .row, 
 .square {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 } 
 
 .filled {
