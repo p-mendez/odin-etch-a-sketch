@@ -18,3 +18,6 @@ Etch-A-Sketch is a web application that allows users to draw and sketch on a gri
 * Click the "Create New Grid" button to generate a new grid with a different size.
 * Toggle the "Random Colors On/Off" button to switch between random color mode.
 * Toggle the "Progressive Darkening Mode On/Off" button to enable or disable progressive darkening mode.
+
+## Link to Instructions
+https://www.theodinproject.com/lessons/foundations-etch-a-sketch
